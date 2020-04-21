@@ -88,3 +88,4 @@ fabric.properties
 .externalNativeBuild
 
 /gradle
+gradle.properties

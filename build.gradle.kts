@@ -9,8 +9,8 @@ plugins {
     signing
 }
 
-group = "com.typedpath.tools"
-version = "1.0.0-SNAPSHOT"
+group = "com.typedpath"
+version = "1.0.0"
 
 val ossrhUsername: String by project
 val ossrhPassword: String by project
@@ -38,12 +38,8 @@ repositories {
 
 dependencies {
     compile(kotlin("stdlib-jdk8"))
-    compile (kotlin("reflect"))
+    //compile (kotlin("reflect"))
     testCompile("junit:junit:4.12")
-    testCompile("com.amazonaws:aws-java-sdk-sns:1.11.759")
-    testCompile("com.amazonaws:aws-java-sdk-sqs:1.11.759")
-    testCompile("com.amazonaws:aws-java-sdk-lambda:1.11.759")
-    testCompile("com.amazonaws:aws-java-sdk-dynamodb:1.11.759")
 }
 
 tasks.dokka {
@@ -101,9 +97,9 @@ publishing {
             artifact(dokkaJar)
 
             pom {
-                name.set("cloudformation2kotlin")
-                description.set("a Kotlin DSL for AWS cloudformation")
-                url.set("https://github.com/typedpath/cloudformation2kotlin")
+                name.set("iam2kotlin")
+                description.set("a Kotlin mapping  for AWS IAM")
+                url.set("https://github.com/typedpath/iam2kotlin")
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
@@ -118,9 +114,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:https//github.com/typedpath/cloudformation2kotlin.git")
-                    developerConnection.set("scm:git:https//github.com/typedpath/cloudformation2kotlin.git")
-                    url.set("https://github.com/typedpath/cloudformation2kotlin")
+                    connection.set("scm:git:https//github.com/typedpath/iam2kotlin.git")
+                    developerConnection.set("scm:git:https//github.com/typedpath/iam2kotlin.git")
+                    url.set("https://github.com/typedpath/iam2kotlin")
                 }
             }
         }

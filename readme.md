@@ -41,8 +41,15 @@ __S3Action.PutObjectTagging.byBucketnameKeyname("mybucket", "*")__ => __arn:aws:
     }
 
 ```
-
+## maven artifact 
+```xml
+<dependency>
+  <groupId>com.typedpath</groupId>
+  <artifactId>iam2kotlin</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
 ## TODO
-Conditons
+Conditions
 
