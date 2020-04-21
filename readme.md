@@ -1,6 +1,6 @@
 # iam2kotlin
 
- this is a kotlin mapping for 
+ this is a kotlin mapping for AWS IAM  
  The data is taken from  __https://github.com/widdix/complete-aws-iam-reference/tree/master/services__
  which is presented at  __https://iam.cloudonaut.io/__ 
 which ultimately derives from 
@@ -19,7 +19,6 @@ __S3Action.PutObjectTagging.byBucketnameKeyname("mybucket", "*")__ => __arn:aws:
 ```kotlin
     val codeBuildPolicyDocument = IamPolicy {
         statement {
-            //TODO make these constants
             action ( LogsAction.CreateLogGroup)
             action ( LogsAction.CreateLogStream)
             action ( LogsAction.PutLogEvents)
@@ -29,14 +28,15 @@ __S3Action.PutObjectTagging.byBucketnameKeyname("mybucket", "*")__ => __arn:aws:
         statement {
             action ( CodecommitAction.GitPull)
             effect = IamPolicy.EffectType.Allow
-            resource ( IamPolicy.Resource(join(":", listOf("arn", "aws", "codecommit", refCurrentRegion(), refCurrentAccountId(), defaultReponame))))
+            resource (CodecommitAction.GitPush.byRegionAccountRepositoryname("us-east-1", "987654321", "myrepo")
+)
         }
         statement {
             action ( S3Action.PutObject)
             action ( S3Action.GetObject)
             action ( S3Action.GetObjectVersion)
             effect = IamPolicy.EffectType.Allow
-            resource ( IamPolicy.Resource(join("", listOf("arn:aws:s3:::", ref(artifactsBucket), "/*"))))
+            resource (S3Action.PutObject.byBucketnameKeyname("mybucket", "*"))
         }
     }
 
