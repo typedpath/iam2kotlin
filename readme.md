@@ -8,12 +8,12 @@ which ultimately derives from
 
 ### Action Mappings
 e.g.  
-__LogsAction.CreateLogGroup.id__ => __logs:CreateLogGroup__  
-__S3Action.All__ => __s3:*__
+__LogsAction.CreateLogGroup.id__ => __"logs:CreateLogGroup"__  
+__S3Action.All__ => __"s3:*"__
 
 ### Resource Mapping
 e.g.   
-__S3Action.PutObjectTagging.byBucketnameKeyname("mybucket", "*")__ => __arn:aws:s3:::mybucket/*__
+__S3Action.PutObjectTagging.byBucketnameKeyname("mybucket", "*")__ => __"arn:aws:s3:::mybucket/*"__
 
 ### IamPolicy model 
 ```kotlin
